@@ -22,10 +22,9 @@ class beneficiaries extends Controller
         //
 
         if(auth()->user()->hasRole('admin'))
-            $users=Beneficiary::all();
-
+            $users = Beneficiary::all();
         else
-            $users= Beneficiary::where('office_id',auth()->user()->office_id)->get();
+            $users = Beneficiary::where('office_id',auth()->user()->office_id)->get();
         return response()->json(['data'=>$users]);
 
     }
@@ -50,19 +49,18 @@ class beneficiaries extends Controller
      */
     public function store(Createben $request)
     {
-        //
         $adduser= new Beneficiary;
-        $adduser->username=$request->username;
-        $adduser->personal_id=$request->personal_id;
-        $adduser->typePoor=$request->typePoor;
-        $adduser->sons=$request->sons;
-        $adduser->Wives=$request->Wives;
-
-        $adduser->adderss=$request->adderss;
-        $adduser->content=$request->desc;
-        $adduser->office_id=auth()->user()->office->id;
-        $adduser->user_id=auth()->user()->id;
+        $adduser->username          = $request->username;
+        $adduser->personal_id       = $request->personal_id;
+        $adduser->typePoor          = $request->typePoor;
+        $adduser->sons              = $request->sons;
+        $adduser->Wives             = $request->Wives;
+        $adduser->adderss           = $request->adderss;
+        $adduser->content           = $request->desc;
+        $adduser->office_id         = auth()->user()->office->id;
+        $adduser->user_id           = auth()->user()->id;
         $adduser->save();
+
         return response()->json(['data'=>'user create']);
     }
 
@@ -74,7 +72,7 @@ class beneficiaries extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -93,8 +91,6 @@ class beneficiaries extends Controller
         $u['officecity']=$office->city->name_ar;
         $u['officeadderss']=$office->address;
         return response()->json(['data'=>$u]);
-
-
     }
 
     /**
@@ -106,9 +102,6 @@ class beneficiaries extends Controller
      */
     public function update(Createben $request, $id)
     {
-        //
-
-        //
         $adduser= Beneficiary::findOrFail($id);
         $adduser->username=$request->username;
         $adduser->personal_id=$request->personal_id;
@@ -122,7 +115,6 @@ class beneficiaries extends Controller
         $adduser->save();
 
         return response()->json(['data'=>'user update']);
-
     }
 
     /**
@@ -133,11 +125,8 @@ class beneficiaries extends Controller
      */
     public function destroy($id)
     {
-        //
         $adduser= Beneficiary::findOrFail($id);
         $adduser->delete();
         return response()->json(['data'=>'user deleted']);
-
-
     }
 }

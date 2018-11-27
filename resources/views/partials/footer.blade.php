@@ -17,6 +17,12 @@
 <!-- Custom Theme JavaScript -->
 <script src="{{asset('admin')}}/js/sb-admin-2.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"></script>
-
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+</script>
 @yield('scripts')
 

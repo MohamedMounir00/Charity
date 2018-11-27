@@ -7,8 +7,8 @@
         @if(isset($errors) > 0)
             @if(Session::has('errors'))
 
-                <div class="alert alert-danger " >
-                    <ul >
+                <div class="alert alert-danger ">
+                    <ul>
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 
                         @foreach ($errors->all() as $error)
@@ -37,7 +37,8 @@
 
                                         <div class="form-group">
                                             <label>السعر او الكميه</label>
-                                            <input type="text" name="price" class="form-control" placeholder="Enter text" value="{{$delavary->price}}" required>
+                                            <input type="text" name="price" class="form-control"
+                                                   placeholder="Enter text" value="{{$delavary->price}}" required>
                                         </div>
                                         <div class="control-group">
                                             <label class="control-label" for="payment_method">طريقه الدفع</label>
@@ -54,9 +55,10 @@
 
 
                                         <div class="control-group">
-                                            <label class="control-label" for="office_id">  نواع التبرع</label>
+                                            <label class="control-label" for="office_id"> نواع التبرع</label>
                                             <div class="controls">
-                                                <select class=" selectpicker form-control  " data-live-search="true" data-placeholder="Select a State"
+                                                <select class=" selectpicker form-control  " data-live-search="true"
+                                                        data-placeholder="Select a State"
                                                         name="type_id" style="width: 100%;" required>
                                                     @foreach($type as $t)
                                                         <option value="{{$t->id}}" {{($delavary->type_id == $t->id) ? 'selected' : ''}}>{{$t->name}} </option>
@@ -68,7 +70,8 @@
                                         <div class="control-group">
                                             <label class="control-label" for="office_id">اسم المحتاج </label>
                                             <div class="controls">
-                                                <select class=" selectpicker form-control  " data-live-search="true" data-placeholder="Select a State"
+                                                <select class=" selectpicker form-control  " data-live-search="true"
+                                                        data-placeholder="Select a State"
                                                         name="be_id" style="width: 100%;" required>
                                                     @foreach($Beneficiary as $b)
                                                         <option value="{{$b->id}}" {{($delavary->be_id == $b->id) ? 'selected' : ''}}>{{$b->username}} </option>

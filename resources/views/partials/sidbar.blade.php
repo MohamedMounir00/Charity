@@ -4,13 +4,7 @@
             <li>
                 <a class="active" href="{{route('home')}}"> Dashboard</a>
             </li>
-            @can('Catogrey-list')
-            <li>
-                <a href="{{route('catogrey.index')}}"> {{trans('admin.catogres')}}
-                    <span class="fa arrow"></span></a>
-                <!-- /.nav-second-level -->
-            </li>
-            @endcan
+
                 @can('donation-list')
 
                 <li>
@@ -57,24 +51,44 @@
                     <span class="fa arrow"></span></a>
             </li>
             @endcan
-            @can('TypeDonation-list')
-            <li>
-                <a href="{{route('typeDonation.index')}}"> {{trans('admin.typeDonation')}}
-                    <span class="fa arrow"></span></a>
+
+
+
+
+
+            <li class="">
+                <a href="#"><i class="fa fa-files-o fa-fw"></i>الاعدادات<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse" style="height: 0px;">
+                    @can('Catogrey-list')
+                        <li>
+                            <a href="{{route('catogrey.index')}}"> {{trans('admin.catogres')}}
+                                <span class="fa arrow"></span></a>
+                            <!-- /.nav-second-level -->
+                        </li>
+                    @endcan
+                        @can('TypeDonation-list')
+                            <li>
+                                <a href="{{route('typeDonation.index')}}"> {{trans('admin.typeDonation')}}
+                                    <span class="fa arrow"></span></a>
+                            </li>
+                        @endcan
+                        @can('role-list')
+                            <li>
+                                <a href="{{route('roles.index')}}"> {{trans('admin.roles')}}
+                                    <span class="fa arrow"></span></a>
+                            </li>
+                        @endcan
+                        @can('ArchiveDonation-list')
+                            <li>
+                                <a href="{{route('archiveDonation')}}"> {{trans('admin.archives')}}
+                                    <span class="fa arrow"></span></a>
+                            </li>
+                        @endcan
+                </ul>
+                <!-- /.nav-second-level -->
             </li>
-            @endcan
-            @can('role-list')
-            <li>
-                <a href="{{route('roles.index')}}"> {{trans('admin.roles')}}
-                    <span class="fa arrow"></span></a>
-            </li>
-            @endcan
-            @can('ArchiveDonation-list')
-            <li>
-                <a href="{{route('archiveDonation')}}"> {{trans('admin.archives')}}
-                    <span class="fa arrow"></span></a>
-            </li>
-            @endcan
+
+
             <li class="">
                 <a href="#"><i class="fa fa-files-o fa-fw"></i>التقارير<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse" style="height: 0px;">
@@ -87,6 +101,20 @@
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
+
+            <li>
+
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                    تسجيل خروج
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </li>
+
         </ul>
     </div>
     <!-- /.sidebar-collapse -->

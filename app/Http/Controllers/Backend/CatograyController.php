@@ -25,9 +25,7 @@ class CatograyController extends Controller
 
     public function index()
     {
-        //
-
-        $cats =Catogrey::all();
+        $cats = Catogrey::all();
         return view('cat.index',compact('cats'));
     }
 
@@ -38,7 +36,6 @@ class CatograyController extends Controller
      */
     public function create()
     {
-        //
         return view('cat.create');
     }
 
@@ -50,7 +47,6 @@ class CatograyController extends Controller
      */
     public function store(CreateCat $request)
     {
-        //
         Catogrey::create($request->all());
         session()->flash('success' , trans('admin.addsystem'));
         return redirect()->route('catogrey.index');
@@ -64,7 +60,6 @@ class CatograyController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
@@ -75,10 +70,8 @@ class CatograyController extends Controller
      */
     public function edit($id)
     {
-        //
         $cat = Catogrey::findOrFail($id);
         return view('cat.edit',compact('cat'));
-
     }
 
     /**
@@ -107,7 +100,6 @@ class CatograyController extends Controller
      */
     public function destroy($id)
     {
-        //
         $cat=Catogrey::findOrFail($id);
         $cat->delete();
         session()->flash('success',trans('admin.deleted'));

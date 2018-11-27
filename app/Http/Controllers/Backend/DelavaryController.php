@@ -59,13 +59,11 @@ class DelavaryController extends Controller
      */
     public function store(CreatDelavary $request)
     {
-
         $delavary= new Delavary;
         $delavary->price=$request->price;
         $delavary->type=$request->type;           ///'type',['cash','goods'
         $delavary->be_id=$request->be_id;
         $delavary->type_id=$request->type_id;
-
         $delavary->office_id=auth()->user()->office->id;
         $delavary->user_id=auth()->user()->id;
         $delavary->save();
@@ -92,16 +90,11 @@ class DelavaryController extends Controller
      */
     public function edit($id)
     {
-        //
         $delavary=  Delavary::with('type')->findOrFail($id);
-        $Beneficiary= Beneficiary::all();
+        $Beneficiary = Beneficiary::all();
         $type= TypeDonation::all();
 
         return view('delavery.edit',compact('delavary','Beneficiary','type'));
-
-
-
-
     }
 
     /**
@@ -113,8 +106,6 @@ class DelavaryController extends Controller
      */
     public function update(CreatDelavary $request, $id)
     {
-        //
-
         $delavary=  Delavary::findOrFail($id);
         $delavary->price=$request->price;
         $delavary->type=$request->type;           ///'type',['cash','goods'

@@ -36,9 +36,9 @@ class CreateUsers extends Resource
     public function toArray($request)
     {
         return [
-            'country' => Country::collection($this->country),
-            'studyLevel' => StudyLevel::collection($this->studyLevel),
-            'offices' => Office::collection($this->offices),
+            'country'       => Country::collection($this->country),
+            'studyLevel'    => StudyLevel::collection($this->studyLevel),
+            'offices'       => Office::collection($this->offices),
 
         ];
     }

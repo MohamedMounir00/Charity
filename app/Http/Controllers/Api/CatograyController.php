@@ -24,9 +24,7 @@ class CatograyController extends Controller
     }
     public function index()
     {
-        //
-
-        $cat =Catogrey::all();
+        $cat = Catogrey::all();
         return response()->json(['data'=>$cat]);
     }
 
@@ -48,10 +46,8 @@ class CatograyController extends Controller
      */
     public function store(CreateCat $request)
     {
-        //
         Catogrey::create($request->all());
-        return response()->json(['data'=>'Catogrey: created']);
-
+        return response()->json(['data'=>'Category: created']);
     }
 
     /**
@@ -73,10 +69,8 @@ class CatograyController extends Controller
      */
     public function edit($id)
     {
-        //
         $cat = Catogrey::findOrFail($id);
         return response()->json(['data'=>$cat]);
-
     }
 
     /**
@@ -88,8 +82,6 @@ class CatograyController extends Controller
      */
     public function update(CreateCat $request, $id)
     {
-        //
-
         $cat=Catogrey::findOrFail($id);
         $cat->update($request->all());
         return response()->json(['data'=>'Catogrey update']);
@@ -103,7 +95,6 @@ class CatograyController extends Controller
      */
     public function destroy($id)
     {
-        //
         $cat=Catogrey::findOrFail($id);
         $cat->delete();
         return response()->json(['data'=>'Catogrey delete']);
