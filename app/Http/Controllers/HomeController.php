@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Delavary;
+use App\Donation;
+use App\Office;
+use App\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +27,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        $donation = Donation::count();
+            $delavery= Delavary::count();
+                $office=Office::count();
+                    $users= User::count();
+
+        return view('home',compact('users','donation','delavery','office'));
     }
 }
