@@ -100,7 +100,26 @@
 
     <script>
         $(document).ready(function() {
-            $('#dataTables-example').dataTable();
+            $('#dataTables-example').DataTable({
+                "language": {
+                    "decimal": "",
+                    "emptyTable": "{{trans('admin.No_data_available_in_table')}}",
+                    "infoEmpty": "{{trans('admin.Showing_0_to_0_of_0_entries')}}",
+                    "info":           "{{trans('admin.showing')}}_START_ {{trans('admin.to')}} _END_ {{trans('admin.of')}} _TOTAL_{{trans('admin.entries')}} ",
+
+                    "infoPostFix": "",
+                    "thousands": ",",
+                    "lengthMenu": "{{trans('admin.show_t')}}_MENU_ {{trans('admin.entries')}}",
+                    "search": "{{trans('admin.search')}}",
+                    "zeroRecords": "{{trans('admin.No_matching_records_found')}}",
+                    "paginate": {
+                        "first": "{{trans('admin.First')}}",
+                        "last": "{{trans('admin.Last')}}",
+                        "next": "{{trans('admin.Next')}}",
+                        "previous": "{{trans('admin.Previous')}}"
+                    }
+                }
+            });
         });
     </script>
 

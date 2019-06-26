@@ -27,7 +27,7 @@ class UserController extends Controller
     }
     public function index()
     {
-        //
+        /////////////
     }
 
     /**
@@ -144,7 +144,7 @@ class UserController extends Controller
         ]);
         $user= User::where('email',$request->email)->first();
         if(!$user){
-            return response(['status'=>'error','message'=>'User not found']);
+            return response(['status'=>'error','message'=>trans('admin.user_notfound')]);
         }
         if(Hash::check($request->password, $user->password)){
             $client = \Laravel\Passport\Client::where('password_client', 1)->first();
@@ -180,7 +180,7 @@ class UserController extends Controller
 
 
         }else{
-            return response(['message'=>'password not match','status'=>'error']);
+            return response(['status'=>'error','message'=>trans('admin.user_notfound')]);
         }
     }
 

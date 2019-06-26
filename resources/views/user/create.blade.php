@@ -25,7 +25,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    {{trans('admin.newcatogres')}}
+                    {{trans('admin.new_user')}}
                 </div>
                 <div class="panel-body">
                     <div class="row">
@@ -102,8 +102,8 @@
                                             <label class="control-label" for="office_id">{{trans('admin.country')}} </label>
                                             <div class="controls">
                                                 <select class=" selectpicker form-control  " data-live-search="true" data-placeholder="Select a State"
-                                                        name="country_id" style="width: 99%;" required data-region-id="one" id="countries">
-                                                    <option >-------</option>
+                                                        name="country_id" style="width: 99%;" required data-region-id="one" id="countries"  >
+                                                    <option value="" >-------</option>
 
                                                 @foreach($country as $c)
                                                         <option value="{{$c->id}}">{{$c->name_ar}}</option>
@@ -116,7 +116,7 @@
                                             <div class="controls">
                                                 <select class="  form-control "data-placeholder="Select a State"
                                                         name="city_id" style="width: 99%;" required  id="one">
-                                                    <option >-------</option>
+                                                    <option  value="">-------</option>
 
                                                 </select>
                                             </div>

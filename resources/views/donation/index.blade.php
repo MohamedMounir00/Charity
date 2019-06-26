@@ -24,7 +24,7 @@
                                 <!-- /.panel-heading -->
                                 <div class="panel-body">
                                     <div class="table-responsive">
-                                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                        <table class="table table-striped table-bordered table-hover" id="myTable">
                                             <thead>
                                             <tr>
                                                 <th>{{trans('admin.donationname')}}</th>
@@ -47,7 +47,7 @@
                                                 <td>{{$donation->price}}.EGP</td>
                                                 <td><?php try { echo $donation->payment_method;} catch(Exception $e) {} ?></td>
                                                 <td><?php try {echo  $donation->user_rel->name;} catch(Exception $e) {}  ?></td>
-                                                <td>{{$donation->date}}</td>
+                                                <td>{{date('Y-m-d', strtotime($donation->date))}}</td>
                                                 <td><?php try { echo $donation->offices_rel->city->name_ar;} catch(Exception $e) {} ?></td>
 
 
@@ -56,7 +56,7 @@
                                                 <td >
                                                     @can('Order-create')
 
-                                                    <a href="{{route('gettorderdonation', $donation->id)}}" class="btn btn-info pull-right">طلب تعديل</a>
+                                                    <a href="{{route('gettorderdonation', $donation->id)}}" class="btn btn-info pull-right">{{trans('admin.order_edit')}}</a>
                                                     @endcan
 
                                                 @can('donation-edit')
@@ -65,14 +65,14 @@
                                                           @endcan
                                                     @can('Order-create')
 
-                                                    <a href="{{route('gettorderdonation', $donation->id)}}" class="btn btn-danger pull-right">طلب حذف</a>
+                                                    <a href="{{route('gettorderdonation', $donation->id)}}" class="btn btn-danger pull-right">{{trans('admin.order_delete')}}</a>
                                                     @endcan
 
                                                         @can('donation-delete')
 
                                                     <a href="{{route('getdelete',  $donation->id)}}" class="btn btn-danger pull-right">{{trans('admin.delete')}}</a>
                                                      @endcan
-                                                        <a href="{{route('printDon',  $donation->id)}}" class="btn btn-primary pull-right">طباعه</a>
+                                                        <a href="{{route('printDon',  $donation->id)}}" class="btn btn-primary pull-right">{{trans('admin.print')}}</a>
 
                                                 </td>
 
@@ -108,7 +108,26 @@
 
     <script>
         $(document).ready(function() {
-            $('#dataTables-example').dataTable();
+            $('#myTable').DataTable({
+                "language": {
+                    "decimal": "",
+                    "emptyTable": "{{trans('admin.No_data_available_in_table')}}",
+                    "infoEmpty": "{{trans('admin.Showing_0_to_0_of_0_entries')}}",
+                    "info":           "{{trans('admin.showing')}}_START_ {{trans('admin.to')}} _END_ {{trans('admin.of')}} _TOTAL_{{trans('admin.entries')}} ",
+
+                    "infoPostFix": "",
+                    "thousands": ",",
+                    "lengthMenu": "{{trans('admin.show_t')}}_MENU_ {{trans('admin.entries')}}",
+                    "search": "{{trans('admin.search')}}",
+                    "zeroRecords": "{{trans('admin.No_matching_records_found')}}",
+                    "paginate": {
+                        "first": "{{trans('admin.First')}}",
+                        "last": "{{trans('admin.Last')}}",
+                        "next": "{{trans('admin.Next')}}",
+                        "previous": "{{trans('admin.Previous')}}"
+                    }
+                }
+            });
         });
     </script>
 

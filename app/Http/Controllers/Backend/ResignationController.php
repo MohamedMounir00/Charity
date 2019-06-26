@@ -124,23 +124,41 @@ class ResignationController extends Controller
     public function destroy($id)
     {
         //
-        $resignation=Resignation::findOrFail($id);
-        $resignation->delete();
+        if (auth()->user()->id==$id)
+        {
+            session()->flash('success' , trans('admin.deleted'));
+            return redirect()->route('resignation.index');
 
-        session()->flash('success' , trans('admin.deleted'));
-        return redirect()->route('resignation.index');
+        }
+        else{
+            $resignation=Resignation::findOrFail($id);
+            $resignation->delete();
+
+            session()->flash('success' , trans('admin.deleted'));
+            return redirect()->route('resignation.index');
+        }
 
     }
 
     public function accept($id)
     {
         //
-        $resignation=Resignation::findOrFail($id);
-        $resignation->delete();
-        $resignation->user_rel->delete();
+        if (auth()->user()->id==$id)
+        {
+            session()->flash('success' , trans('admin.deleted'));
+            return redirect()->route('resignation.index');
 
-        session()->flash('success' , trans('admin.deleted'));
-        return redirect()->route('resignation.index');
+        }
+        else{
+            $resignation=Resignation::findOrFail($id);
+            $resignation->delete();
+            $resignation->user_rel->delete();
+
+            session()->flash('success' , trans('admin.deleted'));
+            return redirect()->route('resignation.index');
+        }
+
+
 
     }
 }

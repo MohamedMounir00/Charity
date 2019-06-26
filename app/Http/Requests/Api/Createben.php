@@ -26,10 +26,10 @@ class Createben extends FormRequest
         return [
             //
             'username'=>'required',
-            'personal_id'=>'required',
+            'personal_id'=>'required|min:9',
             'adderss'=>'required',
-           // 'sons'=>'required',
-            //'Wives'=>'required',
+          'sons'=>'numeric',
+            'Wives'=>'numeric',
             'typePoor'=>'required',
 
         ];
