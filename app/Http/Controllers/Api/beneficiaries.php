@@ -61,7 +61,7 @@ class beneficiaries extends Controller
         $adduser->user_id           = auth()->user()->id;
         $adduser->save();
 
-        return response()->json(['data'=>'user create']);
+        return response()->json(['data'=>' تم انشاء  المستخدم بنجاح']);
     }
 
     /**
@@ -114,7 +114,7 @@ class beneficiaries extends Controller
         $adduser->user_id=auth()->user()->id;
         $adduser->save();
 
-        return response()->json(['data'=>'user update']);
+        return response()->json(['data'=>'تم التعديل بنجاح']);
     }
 
     /**
@@ -127,6 +127,6 @@ class beneficiaries extends Controller
     {
         $adduser= Beneficiary::findOrFail($id);
         $adduser->delete();
-        return response()->json(['data'=>'user deleted']);
+        return response()->json(['data'=>'تم الحذف']);
     }
 }

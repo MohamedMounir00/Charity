@@ -120,7 +120,7 @@ class ResignationController extends Controller
         $resignation->office_id=auth()->user()->office->id;
         $resignation->user_id=auth()->user()->id;
         $resignation->save();
-        return response()->json(['data'=>'Resignation is updateed']);
+        return response()->json(['data'=>'تم تعديل الاستقاله']);
 
     }
 
@@ -135,7 +135,7 @@ class ResignationController extends Controller
         //
         $resignation=Resignation::findOrFail($id);
         $resignation->delete();
-        return response()->json(['data'=>'Resignation is deleted']);
+        return response()->json(['data'=>' تم الحذف']);
 
 
     }

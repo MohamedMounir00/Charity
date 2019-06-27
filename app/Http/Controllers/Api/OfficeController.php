@@ -47,7 +47,7 @@ class OfficeController extends Controller
     {
         //
             Office::create($request->all());
-          return response()->json(['data'=>'office created']);
+          return response()->json(['data'=>'تم الانشاء بنجاح ']);
 
 
 
@@ -107,7 +107,7 @@ class OfficeController extends Controller
         //
         $offce=Office::findOrFail($id);
         $offce->delete();
-        return response()->json(['data'=>'office delete']);
+        return response()->json(['data'=>'تم الحذف']);
 
 
     }

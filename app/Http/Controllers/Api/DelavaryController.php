@@ -75,7 +75,7 @@ class DelavaryController extends Controller
         $delavary->office_id=auth()->user()->office->id;
         $delavary->user_id=auth()->user()->id;
         $delavary->save();
-        return response()->json(['data'=>'donation send for poor']);
+        return response()->json(['data'=>'تم ارسال التبرع  للمحتاج']);
 
     }
 
@@ -133,7 +133,7 @@ class DelavaryController extends Controller
         $delavary->office_id=auth()->user()->office->id;
         $delavary->user_id=auth()->user()->id;
         $delavary->save();
-        return response()->json(['data'=>'donation send for poor']);
+        return response()->json(['data'=>'تم ارسال التبرع  للمحتاج']);
     }
 
     /**
@@ -148,6 +148,6 @@ class DelavaryController extends Controller
         $delavary=  Delavary::findOrFail($id);
 
         $delavary->delete();
-        return response()->json(['data'=>'delavart is deleted']);
+        return response()->json(['data'=>'تم الحذف']);
     }
 }

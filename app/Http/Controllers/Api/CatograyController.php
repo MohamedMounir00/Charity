@@ -47,7 +47,7 @@ class CatograyController extends Controller
     public function store(CreateCat $request)
     {
         Catogrey::create($request->all());
-        return response()->json(['data'=>'Category: created']);
+        return response()->json(['data'=>'تم الانشاء بنجاح']);
     }
 
     /**
@@ -84,7 +84,7 @@ class CatograyController extends Controller
     {
         $cat=Catogrey::findOrFail($id);
         $cat->update($request->all());
-        return response()->json(['data'=>'Catogrey update']);
+        return response()->json(['data'=>'تم التعديل بنجاح']);
     }
 
     /**
@@ -97,6 +97,6 @@ class CatograyController extends Controller
     {
         $cat=Catogrey::findOrFail($id);
         $cat->delete();
-        return response()->json(['data'=>'Catogrey delete']);
+        return response()->json(['data'=>'تم الحذف']);
     }
 }

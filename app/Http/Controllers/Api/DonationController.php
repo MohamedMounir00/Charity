@@ -89,7 +89,7 @@ class DonationController extends Controller
         $add->payment_method = $r->input('payment_method');
         $add->user_id = auth()->user()->id;
         $add->save();
-        return response()->json(['data'=>'donation created']);
+        return response()->json(['data'=>' تم الانشاء ']);
     }
 
     /**

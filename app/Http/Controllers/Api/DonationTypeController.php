@@ -51,7 +51,7 @@ class DonationTypeController extends Controller
     {
         //
         TypeDonation::create($request->all());
-        return response()->json(['data'=>'type op donation created']);
+        return response()->json(['data'=>'تم الانشاء بنجاخ']);
     }
 
     /**
@@ -92,7 +92,7 @@ class DonationTypeController extends Controller
         $type = TypeDonation::findOrFail($id);
 
         $type->update($request->all());
-        return response()->json(['data'=>'type op donation update']);
+        return response()->json(['data'=>'تم التعديل ']);
     }
 
     /**
@@ -107,7 +107,7 @@ class DonationTypeController extends Controller
         $type = TypeDonation::findOrFail($id);
         $type->delete();
 
-        return response()->json(['data'=>'type op donation delete']);
+        return response()->json(['data'=>'تم الحذف']);
 
     }
 }
