@@ -102,6 +102,7 @@ return [
         'cat_id'=>'القسم',
         'pirthdata'=>'تاريخ الميلاد',
         'pesonal_id'=>'رقم الهويه ',
+        'personal_id'=>'رقم الهويه ',
         'level_id'=>'المستوى',
         'mobile_1'=>'رقم  الموبيل'
 
