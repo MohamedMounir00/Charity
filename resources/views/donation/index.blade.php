@@ -2,113 +2,196 @@
 @section('styles')
 
 <link href="{{asset('admin')}}/css/plugins/dataTables.bootstrap.css" rel="stylesheet">
+
 @endsection
 
 @section('content')
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                {{trans('admin.donations')}}
+
+
+
+
+
+
+
+<div class="kt-portlet kt-portlet--mobile">
+
+        <div class="kt-portlet__head kt-portlet__head--lg">
+                <div class="kt-portlet__head-label">
+                    <span class="kt-portlet__head-icon">
+                        <i class="kt-font-brand flaticon2-line-chart"></i>
+                    </span>
+                    <h3 class="kt-portlet__head-title">
+                            {{trans('admin.donations')}}
+                    </h3>
                 </div>
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="panel panel-default">
-                                @can('donation-create')
-
-                                <div class="panel-heading">
-                                    <a href="{{route('donation.create')}}" class=" btn btn-info">{{trans('admin.addnewdonations')}}</a>
-                                </div>
-                                @endcan
-                                <!-- /.panel-heading -->
-                                <div class="panel-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-striped table-bordered table-hover" id="myTable">
-                                            <thead>
-                                            <tr>
-                                                <th>{{trans('admin.donationname')}}</th>
-                                                <th>{{trans('admin.price')}}</th>
-                                                <th>{{trans('admin.payment_method')}}</th>
-                                                <th>{{trans('admin.creatby')}}</th>
-                                                <th>{{trans('admin.date')}}</th>
-                                                <th>{{trans('admin.office_id')}}</th>
-                                                <th>{{trans('admin.cat_id')}}</th>
-                                                <th>{{trans('admin.type')}}</th>
-                                                <th>{{trans('admin.action')}}</th>
-
-
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            @foreach($donations as $donation)
-                                            <tr>
-                                                <td>{{$donation->name}}</td>
-                                                <td>{{$donation->price}}.EGP</td>
-                                                <td><?php try { echo $donation->payment_method;} catch(Exception $e) {} ?></td>
-                                                <td><?php try {echo  $donation->user_rel->name;} catch(Exception $e) {}  ?></td>
-                                                <td>{{date('Y-m-d', strtotime($donation->date))}}</td>
-                                                <td><?php try { echo $donation->offices_rel->city->name_ar;} catch(Exception $e) {} ?></td>
-
-
-                                                <td><?php try {echo $donation->cat_rel->name;} catch(Exception $e) {} ?></td>
-                                                <td><?php try {echo $donation->type->name;} catch(Exception $e) {} ?></td>
-                                                <td >
-                                                    @can('Order-create')
-
-                                                    <a href="{{route('gettorderdonation', $donation->id)}}" class="btn btn-info pull-right">{{trans('admin.order_edit')}}</a>
-                                                    @endcan
-
-                                                @can('donation-edit')
-
-                                                    <a href="{{route('donation.edit', $donation->id)}}" class="btn btn-info pull-right">{{trans('admin.edit')}}</a>
-                                                          @endcan
-                                                    @can('Order-create')
-
-                                                    <a href="{{route('gettorderdonation', $donation->id)}}" class="btn btn-danger pull-right">{{trans('admin.order_delete')}}</a>
-                                                    @endcan
-
-                                                        @can('donation-delete')
-
-                                                    <a href="{{route('getdelete',  $donation->id)}}" class="btn btn-danger pull-right">{{trans('admin.delete')}}</a>
-                                                     @endcan
-                                                        <a href="{{route('printDon',  $donation->id)}}" class="btn btn-primary pull-right">{{trans('admin.print')}}</a>
-
-                                                </td>
-
-                                            </tr>
-                                         @endforeach
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <!-- /.table-responsive -->
-
-                                </div>
-                                <!-- /.panel-body -->
-                            </div>
-                            <!-- /.panel -->
+                <div class="kt-portlet__head-toolbar">
+                    
+                    <div class="kt-portlet__head-wrapper">
+                            @can('donation-create')
+                        <div class="kt-portlet__head-actions">
+                            <a href="{{route('donation.create')}}" class="btn btn-brand btn-elevate btn-icon-sm">
+                                <i class="la la-plus"></i>
+                                {{trans('admin.addnewdonations')}}
+                            </a>
                         </div>
-                        <!-- /.col-lg-12 -->
+                        @endcan
                     </div>
-
-                    <!-- /.row (nested) -->
                 </div>
-                <!-- /.panel-body -->
             </div>
-            <!-- /.panel -->
-        </div>
-        <!-- /.col-lg-12 -->
-    </div>
-    <!-- /.row -->
-    <!-- /#page-wrapper -->
+
+
+
+
+
+
+
+
+
+
+
+            <div class="kt-portlet__body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="table-responsive">
+                            <table class="table table-striped- table-bordered table-hover table-checkable dataTable no-footer dtr-inline" id="dataTables-example">
+        <thead>
+       <tr>
+           <th class="sorting">{{trans('admin.donationname')}}</th>
+           <th class="sorting">{{trans('admin.price')}}</th>
+           <th class="sorting">{{trans('admin.payment_method')}}</th>
+           <th class="sorting">{{trans('admin.creatby')}}</th>
+           <th class="sorting">{{trans('admin.date')}}</th>
+           <th class="sorting">{{trans('admin.office_id')}}</th>
+           <th class="sorting">{{trans('admin.cat_id')}}</th>
+           <th class="sorting">{{trans('admin.type')}}</th>
+           <th class="sorting">{{trans('admin.action')}}</th>
+
+
+       </tr>
+       </thead>
+       <tbody>
+       @foreach($donations as $donation)
+       <tr>
+           <td>{{$donation->name}}</td>
+           <td>{{$donation->price}}.EGP</td>
+           <td><?php try { echo $donation->payment_method;} catch(Exception $e) {} ?></td>
+           <td><?php try {echo  $donation->user_rel->name;} catch(Exception $e) {}  ?></td>
+           <td>{{date('Y-m-d', strtotime($donation->date))}}</td>
+           <td><?php try { echo $donation->offices_rel->city->name_ar;} catch(Exception $e) {} ?></td>
+
+
+           <td><?php try {echo $donation->cat_rel->name;} catch(Exception $e) {} ?></td>
+           <td><?php try {echo $donation->type->name;} catch(Exception $e) {} ?></td>
+           <td >
+               @can('Order-create')
+
+               <a href="{{route('gettorderdonation', $donation->id)}}" class="kt-badge kt-badge--primary kt-badge--inline">{{trans('admin.order_edit')}}</a>
+               
+               @endcan
+
+           @can('donation-edit')
+
+               <a href="{{route('donation.edit', $donation->id)}}" class="kt-badge kt-badge--primary kt-badge--inline">{{trans('admin.edit')}}</a>
+                     @endcan
+               @can('Order-create')
+
+               <a href="{{route('gettorderdonation', $donation->id)}}" class="kt-badge kt-badge--danger kt-badge--inline">{{trans('admin.order_delete')}}</a>
+               @endcan
+
+                   @can('donation-delete')
+
+               <a href="{{route('getdelete',  $donation->id)}}" class="kt-badge kt-badge--danger kt-badge--inline">{{trans('admin.delete')}}</a>
+                @endcan
+                   <a href="{{route('printDon',  $donation->id)}}" class="kt-badge kt-badge--primary kt-badge--inline">{{trans('admin.print')}}</a>
+
+           </td>
+
+       </tr>
+    @endforeach
+       </tbody>
+   </table>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @endsection
 @section('scripts')
-    <script src="{{asset('admin')}}/js/jquery/jquery.dataTables.min.js"></script>
-    <script src="{{asset('admin')}}/js/bootstrap/dataTables.bootstrap.min.js"></script>
 
+<script src="{{asset('admin/js/jquery/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('admin/js/bootstrap/dataTables.bootstrap.min.js')}}"></script>
+
+<script src="{{asset('assets/vendors/custom/datatables/datatables.bundle.js')}}" type="text/javascript"></script>
+
+    <script src="{{asset('assets/app/custom/general/crud/datatables/advanced/column-rendering.js')}}" type="text/javascript"></script>
+
+    
     <script>
         $(document).ready(function() {
-            $('#myTable').DataTable({
+            $('#dataTables-example').DataTable({
                 "language": {
                     "decimal": "",
                     "emptyTable": "{{trans('admin.No_data_available_in_table')}}",

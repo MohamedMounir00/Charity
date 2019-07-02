@@ -7,39 +7,60 @@
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>لوحة تحكم الجمعية الخيرية</title>
+    <!--begin::Fonts -->
+		<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+		<script>
+			WebFont.load({
+                google: {"families":["Poppins:300,400,500,600,700","Roboto:300,400,500,600,700"]},
+                active: function() {
+                    sessionStorage.fonts = true;
+                }
+            });
+        </script>
+        <link rel="shortcut icon" href="{{asset('assets/media/logos/favicon.ico')}}" />
+        <link href="https://fonts.googleapis.com/css?family=Cairo:300,400,600,700,900|Tajawal:300,400,500,700,800,900&display=swap&subset=arabic" rel="stylesheet">
 
-    <!-- Bootstrap Core CSS -->
-    <link href="{{asset('admin')}}/css/rtl/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('assets/vendors/custom/fullcalendar/fullcalendar.bundle.css')}}" rel="stylesheet" type="text/css" />
 
-    <!-- not use this in ltr -->
-    <link href="{{asset('admin')}}/css/rtl/bootstrap.rtl.css" rel="stylesheet">
+		<!--end::Page Vendors Styles -->
 
-    <!-- MetisMenu CSS -->
-    <link href="{{asset('admin')}}/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+		<!--begin:: Global Mandatory Vendors -->
+    <link href="{{asset('assets/vendors/general/perfect-scrollbar/css/perfect-scrollbar.css')}}" rel="stylesheet" type="text/css" />
 
-    <!-- Timeline CSS -->
-    <link href="{{asset('admin')}}/css/plugins/timeline.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="{{asset('admin')}}/css/rtl/sb-admin-2.css" rel="stylesheet">
-
-    <!-- Morris Charts CSS -->
-    <link href="{{asset('admin')}}/css/plugins/morris.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="{{asset('admin')}}/css/font-awesome/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="{{asset('admin')}}/css/plugins/dataTables.bootstrap.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/css/bootstrap-select.min.css">
+    <link href="{{asset('assets/demo/default/skins/header/base/light.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/demo/default/skins/header/menu/light.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/demo/default/skins/brand/dark.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/demo/default/skins/aside/dark.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/vendors/custom/datatables/datatables.bundle.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/vendors/general/perfect-scrollbar/css/perfect-scrollbar.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/vendors/custom/vendors/flaticon/flaticon.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/vendors/custom/vendors/flaticon2/flaticon.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/vendors/custom/vendors/fontawesome5/css/all.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/vendors/custom/vendors/line-awesome/css/line-awesome.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/vendors/general/socicon/css/socicon.css')}}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <link href="{{asset('admin/css/plugins/dataTables.bootstrap.css')}}" rel="stylesheet">
 
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <!--end::Layout Skins -->
+    <link href="{{asset('assets/media/logos/favicon.ico')}}" rel="stylesheet" type="text/css" />
+
+		<!--end:: Global Optional Vendors -->
+
+		<!--begin::Global Theme Styles(used by all pages) -->
+    <link href="{{asset('assets/demo/default/base/style.bundle.rtl.css')}}" rel="stylesheet" type="text/css" /> 
+    <link href="{{asset('assets/custome.css')}}" rel="stylesheet" type="text/css" /> 
+    
+
+		<!--end::Global Theme Styles -->
+
+		<!--begin::Layout Skins(used by all pages) -->
+    <link href="{{asset('assets/demo/default/skins/header/base/light.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/demo/default/skins/header/menu/light.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/demo/default/skins/brand/dark.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/demo/default/skins/aside/dark.css')}}" rel="stylesheet" type="text/css" />
+
     @yield('styles')
 
 </head>

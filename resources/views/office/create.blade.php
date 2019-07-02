@@ -1,8 +1,143 @@
 @extends('layouts.app')
 
 @section('content')
-    <!-- /#page-wrapper -->
 
+<div class="kt-portlet kt-portlet--mobile">
+        <div class="kt-portlet__head kt-portlet__head--lg">
+                <div class="kt-portlet__head-label">
+                    <span class="kt-portlet__head-icon">
+                        <i class="kt-font-brand flaticon2-line-chart"></i>
+                    </span>
+                    <h3 class="kt-portlet__head-title">
+                            {{trans('admin.newoffices')}}
+                    </h3>
+                </div>
+            </div>
+
+
+            <div class="kt-portlet__body">
+                    @if(isset($errors) > 0)
+                    @if(Session::has('errors'))
+        
+                        <div class="alert alert-danger " >
+                            <ul >
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                @endif
+
+
+                
+                {!! Form::open(['route'=>['office.store'],'method'=>'POST']) !!}
+
+                <div class="form-group">
+                    <label>{{trans('admin.address')}}</label>
+                    <input type="text" name="address" class="form-control" placeholder="Enter text" required>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="office_id">{{trans('admin.country')}} </label>
+                    <div class="controls">
+                        <select class="form-control "data-placeholder="Select a State"
+                                name="country_id" style="width: 100%;" required data-region-id="one" id="countries">
+                            <option >-------</option>
+
+                        @foreach($country as $c)
+                                <option value="{{$c->id}}">{{$c->name_ar}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="office_id">{{trans('admin.city')}} </label>
+                    <div class="controls">
+                        <select class="form-control "data-placeholder="Select a State"
+                                name="city_id" style="width: 100%;" required  id="one">
+                            <option >-------</option>
+
+                        </select>
+                    </div>
+                </div>
+                <div class="form-actions" style="text-align:center">
+                <button type="submit" class="btn btn-brand btn-elevate btn-pill btn-sm" style="padding:10px 40px">{{trans('admin.add')}}</button>
+                </div>
+                {!! Form::close() !!}
+            </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- /#page-wrapper -->
+{{-- 
     <div class="row">
         @if(isset($errors) > 0)
             @if(Session::has('errors'))
@@ -82,7 +217,7 @@
             <!-- /.panel -->
         </div>
         <!-- /.col-lg-12 -->
-    </div>
+    </div> --}}
 
 @endsection
 

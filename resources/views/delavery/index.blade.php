@@ -5,98 +5,138 @@
 @endsection
 
 @section('content')
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-{{trans('admin.delavery')}}
+
+<div class="kt-portlet kt-portlet--mobile">
+    
+
+
+
+
+
+
+        <div class="kt-portlet__head kt-portlet__head--lg">
+                <div class="kt-portlet__head-label">
+                    <span class="kt-portlet__head-icon">
+                        <i class="kt-font-brand flaticon2-line-chart"></i>
+                    </span>
+                    <h3 class="kt-portlet__head-title">
+                            {{trans('admin.delavery')}}
+                    </h3>
                 </div>
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="panel panel-default">
-                                @can('Delavary-create')
-
-                                <div class="panel-heading">
-                                    <a href="{{route('delavery.create')}}" class=" btn btn-info">{{trans('admin.addnewdonations')}}</a>
-                                </div>
-                                @endcan
-                                <!-- /.panel-heading -->
-                                <div class="panel-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                            <thead>
-                                            <tr>
-                                                <th>{{trans('admin.price')}}</th>
-                                                <th>نواع التبرع</th>
-                                                <th>اسم المنتفع</th>
-                                                <th>{{trans('admin.office_id')}}</th>
-                                                <th>{{trans('admin.creatby')}}</th>
-
-
-                                                <th>{{trans('admin.action')}}</th>
-
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            @foreach($delavary as $d)
-                                            <tr>
-                                                <td>{{$d->price}}</td>
-                                                <td>{{$d->type}}</td>
-                                                <td>{{$d->beneficiary->username}}</td>
-                                                <td>{{$d->user_rel->office->city->name_ar}}</td>
-                                                <td>{{$d->user_rel->name}}</td>
-
-                                                <td >
-                                                    @can('Delavary-edit')
-
-                                                    <a href="{{route('delavery.edit', $d->id)}}" class="btn btn-info pull-right">{{trans('admin.edit')}}</a>
-
-                                                    @endcan
-                                                        @can('Delavary-delete')
-
-                                                        {!! Form::open(['route'=>["delavery.destroy" , $d->id ], 'onsubmit' => 'return ConfirmDelete()']) !!}
-
-                                                    {!! method_field('DELETE') !!}
-
-                                                    {!! Form::submit(trans('admin.delete'),['class'=>'btn btn-danger pull-right'])!!}
-
-
-                                                    {!! Form::close() !!}
-                                                        @endcan
-                                                        <a href="{{route('printdelavey',  $d->id)}}" class="btn btn-primary pull-right">طباعه</a>
-
-                                                </td>
-
-                                            </tr>
-                                         @endforeach
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <!-- /.table-responsive -->
-
-                                </div>
-                                <!-- /.panel-body -->
-                            </div>
-                            <!-- /.panel -->
+                <div class="kt-portlet__head-toolbar">
+                    <div class="kt-portlet__head-wrapper">
+                            @can('Delavary-create')
+                        <div class="kt-portlet__head-actions">
+                            
+                            <a href="{{route('delavery.create')}}" class="btn btn-brand btn-elevate btn-icon-sm">
+                                <i class="la la-plus"></i>
+                                {{trans('admin.addnewdonations')}}
+                            </a>
                         </div>
-                        <!-- /.col-lg-12 -->
+                        @endcan
                     </div>
-
-                    <!-- /.row (nested) -->
                 </div>
-                <!-- /.panel-body -->
             </div>
-            <!-- /.panel -->
-        </div>
-        <!-- /.col-lg-12 -->
-    </div>
-    <!-- /.row -->
-    <!-- /#page-wrapper -->
+
+
+
+
+
+            <div class="kt-portlet__body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="table-responsive">
+                                <table class="table table-striped- table-bordered table-hover table-checkable dataTable no-footer dtr-inline" id="dataTables-example">
+                                        <thead>
+                                        <tr>
+                                            <th>{{trans('admin.price')}}</th>
+                                            <th>نواع التبرع</th>
+                                            <th>اسم المنتفع</th>
+                                            <th>{{trans('admin.office_id')}}</th>
+                                            <th>{{trans('admin.creatby')}}</th>
+
+
+                                            <th>{{trans('admin.action')}}</th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($delavary as $d)
+                                        <tr>
+                                            <td>{{$d->price}}</td>
+                                            <td>{{$d->type}}</td>
+                                            <td>{{$d->beneficiary->username}}</td>
+                                            <td>{{$d->user_rel->office->city->name_ar}}</td>
+                                            <td>{{$d->user_rel->name}}</td>
+
+                                            <td >
+                                                @can('Delavary-edit')
+
+                                                <a  style="padding: 2px;" href="{{route('delavery.edit', $d->id)}}" class="btn btn-primary btn-sm">{{trans('admin.edit')}}</a>
+
+                                                @endcan
+                                                    @can('Delavary-delete')
+
+                                                    {!! Form::open(['route'=>["delavery.destroy" , $d->id ], 'onsubmit' => 'return ConfirmDelete()','style'=>'display: initial;']) !!}
+
+                                                {!! method_field('DELETE') !!}
+
+                                                {!! Form::submit(trans('admin.delete'),['class'=>'btn btn-danger btn-sm','style'=>'padding: 2px;'])!!}
+
+
+                                                {!! Form::close() !!}
+                                                    @endcan
+                                                    <a style="padding: 2px;" href="{{route('printdelavey',  $d->id)}}" class="btn btn-primary btn-sm">طباعه</a>
+
+                                            </td>
+
+                                        </tr>
+                                     @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @endsection
 @section('scripts')
-    <script src="{{asset('admin')}}/js/jquery/jquery.dataTables.min.js"></script>
-    <script src="{{asset('admin')}}/js/bootstrap/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
 
     <script>
         $(document).ready(function() {

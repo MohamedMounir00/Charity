@@ -2,6 +2,84 @@
 
 
 @section('content')
+
+
+<div class="kt-portlet kt-portlet--mobile">
+        <div class="kt-portlet__head kt-portlet__head--lg">
+                <div class="kt-portlet__head-label">
+                    <span class="kt-portlet__head-icon">
+                        <i class="kt-font-brand flaticon2-line-chart"></i>
+                    </span>
+                    <h3 class="kt-portlet__head-title">
+                        عرض الأدوار
+                    </h3>
+                </div>
+                <div class="kt-portlet__head-toolbar">
+										<div class="kt-portlet__head-wrapper">
+											<div class="kt-portlet__head-actions">
+											
+												<a href="{{ route('roles.index') }}" class="btn btn-brand btn-elevate btn-icon-sm">
+													رجوع
+												</a>
+											</div>
+										</div>
+									</div>
+            </div>
+
+
+            <div class="kt-portlet__body">
+                    <div class="form-group">
+                            <strong>الأسم : </strong>
+                            {{ $role->name }}
+                        </div>
+
+
+
+                        <div class="form-group">
+                                <strong>الصلاحيات : </strong>
+                                @if(!empty($rolePermissions))
+                                    @foreach($rolePermissions as $v)
+                                        <label class="kt-badge kt-badge--success kt-badge--inline">{{ $v->name }},</label>
+                                    @endforeach
+                                @endif
+                            </div>
+            </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{-- 
+
+
+
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -31,5 +109,5 @@
                 @endif
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection

@@ -5,86 +5,86 @@
 @endsection
 
 @section('content')
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-{{trans('admin.order')}}
+
+
+<div class="kt-portlet kt-portlet--mobile">
+
+        <div class="kt-portlet__head kt-portlet__head--lg">
+                <div class="kt-portlet__head-label">
+                    <span class="kt-portlet__head-icon">
+                        <i class="kt-font-brand flaticon2-line-chart"></i>
+                    </span>
+                    <h3 class="kt-portlet__head-title">
+                            {{trans('admin.order')}}
+                    </h3>
                 </div>
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="panel panel-default">
-
-                                <!-- /.panel-heading -->
-                                <div class="panel-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                            <thead>
-                                            <tr>
-                                                <th>{{trans('admin.title')}}</th>
-                                                <th>{{trans('admin.content')}}</th>
-                                                <th>{{trans('admin.creatby')}}</th>
-                                                <th>{{trans('admin.ststus')}}</th>
-                                                <th>{{trans('admin.donation_id')}}</th>
-
-                                                <th>{{trans('admin.action')}}</th>>
-
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            @foreach($orders as $order)
-                                            <tr>
-                                                <td>{{$order->title}}</td>
-                                                <td>{{$order->content}}</td>
-
-                                                <td><?php try { echo $order->user_rel->name; } catch(Exception $e) {} ?></td>
-                                                <td>{{$order->status}}</td>
-                                                <td>{{$order->donation_id}}</td>
-
-                                                <td >
-                                                    @can('user-edit')
-
-                                                    <a href="{{route('donation.edit', $order->donation_id)}}" class="btn btn-info pull-right">تعديل التبرع</a>
-                                                       @endcan
-                                                        @can('user-delete')
-
-                                                        <a href="{{route('getdelete', $order->donation_id)}}" class="btn btn-danger pull-right">حذف التبرع</a>
-
-                                                        @endcan
-
-
-                                                </td>
-
-                                            </tr>
-                                         @endforeach
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <!-- /.table-responsive -->
-
-                                </div>
-                                <!-- /.panel-body -->
-                            </div>
-                            <!-- /.panel -->
-                        </div>
-                        <!-- /.col-lg-12 -->
-                    </div>
-
-                    <!-- /.row (nested) -->
-                </div>
-                <!-- /.panel-body -->
             </div>
-            <!-- /.panel -->
-        </div>
-        <!-- /.col-lg-12 -->
-    </div>
-    <!-- /.row -->
-    <!-- /#page-wrapper -->
-@endsection
+
+
+
+            <div class="kt-portlet__body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="table-responsive">
+                            <table class="table table-striped- table-bordered table-hover table-checkable dataTable no-footer dtr-inline" id="dataTables-example">
+                                <thead>
+                                <tr>
+                                    <th>{{trans('admin.title')}}</th>
+                                    <th>{{trans('admin.content')}}</th>
+                                    <th>{{trans('admin.creatby')}}</th>
+                                    <th>{{trans('admin.ststus')}}</th>
+                                    <th>{{trans('admin.donation_id')}}</th>
+
+                                    <th>{{trans('admin.action')}}</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($orders as $order)
+                                <tr>
+                                    <td>{{$order->title}}</td>
+                                    <td>{{$order->content}}</td>
+
+                                    <td><?php try { echo $order->user_rel->name; } catch(Exception $e) {} ?></td>
+                                    <td>{{$order->status}}</td>
+                                    <td>{{$order->donation_id}}</td>
+
+                                    <td >
+                                        @can('user-edit')
+
+                                        <a href="{{route('donation.edit', $order->donation_id)}}" class="kt-badge kt-badge--primary kt-badge--inline">تعديل التبرع</a>
+                                           @endcan
+                                            @can('user-delete')
+
+                                            <a href="{{route('getdelete', $order->donation_id)}}" class="kt-badge kt-badge--danger kt-badge--inline">حذف التبرع</a>
+
+                                            @endcan
+
+
+                                    </td>
+
+                                </tr>
+                             @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        </div>
+                </div>
+            </div>
+</div>
+
+
+
+    @endsection
 @section('scripts')
-    <script src="{{asset('admin')}}/js/jquery/jquery.dataTables.min.js"></script>
-    <script src="{{asset('admin')}}/js/bootstrap/dataTables.bootstrap.min.js"></script>
+
+<script src="{{asset('admin/js/jquery/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('admin/js/bootstrap/dataTables.bootstrap.min.js')}}"></script>
+
+<script src="{{asset('assets/vendors/custom/datatables/datatables.bundle.js')}}" type="text/javascript"></script>
+
+    <script src="{{asset('assets/app/custom/general/crud/datatables/advanced/column-rendering.js')}}" type="text/javascript"></script>          
+
 
     <script>
         $(document).ready(function() {

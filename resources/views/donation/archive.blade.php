@@ -5,81 +5,99 @@
 @endsection
 
 @section('content')
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    {{trans('admin.archives')}}
+
+
+<div class="kt-portlet kt-portlet--mobile">
+        <div class="kt-portlet__head kt-portlet__head--lg">
+                <div class="kt-portlet__head-label">
+                    <span class="kt-portlet__head-icon">
+                        <i class="kt-font-brand flaticon2-line-chart"></i>
+                    </span>
+                    <h3 class="kt-portlet__head-title">
+                            {{trans('admin.archives')}}
+                    </h3>
                 </div>
-                <div class="panel-body">
+            </div>
+
+
+
+            <div class="kt-portlet__body">
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-sm-12">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                        <thead>
+                                        <tr>
+                                            <th>{{trans('admin.donationname')}}</th>
+                                            <th>{{trans('admin.price')}}</th>
+                                            <th>{{trans('admin.payment_method')}}</th>
+                                            <th>{{trans('admin.creatby')}}</th>
+                                            <th>{{trans('admin.date_add')}}</th>
+                                            <th>{{trans('admin.date_delete')}}</th>
+                                            <th>{{trans('admin.office_id')}}</th>
+                                            <th>{{trans('admin.cat_id')}}</th>
+                                            <th>{{trans('admin.proccess_type')}}</th>
 
-                                <!-- /.panel-heading -->
-                                <div class="panel-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                            <thead>
+
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($archive as $donation)
                                             <tr>
-                                                <th>{{trans('admin.donationname')}}</th>
-                                                <th>{{trans('admin.price')}}</th>
-                                                <th>{{trans('admin.payment_method')}}</th>
-                                                <th>{{trans('admin.creatby')}}</th>
-                                                <th>{{trans('admin.date_add')}}</th>
-                                                <th>{{trans('admin.date_delete')}}</th>
-                                                <th>{{trans('admin.office_id')}}</th>
-                                                <th>{{trans('admin.cat_id')}}</th>
-                                                <th>{{trans('admin.proccess_type')}}</th>
+                                                <td>{{$donation->name}}</td>
+                                                <td>{{$donation->price}}.EGP</td>
+                                                <td><?php try { echo $donation->payment_method;} catch(Exception $e) {} ?></td>
+                                                <td><?php try {echo  $donation->user_rel->name;} catch(Exception $e) {}  ?></td>
+                                                <td>{{date('Y-m-d', strtotime($donation->created_at))}}</td>
+                                                <td>{{date('Y-m-d', strtotime($donation->date))}}</td>
+                                                <td><?php try { echo $donation->offices_rel->city->name_ar;} catch(Exception $e) {} ?></td>
 
+
+                                                <td><?php try {echo $donation->cat_rel->name;} catch(Exception $e) {} ?></td>
+                                                <td>{{$donation->proccess_type}}</td>
 
 
                                             </tr>
-                                            </thead>
-                                            <tbody>
-                                            @foreach($archive as $donation)
-                                                <tr>
-                                                    <td>{{$donation->name}}</td>
-                                                    <td>{{$donation->price}}.EGP</td>
-                                                    <td><?php try { echo $donation->payment_method;} catch(Exception $e) {} ?></td>
-                                                    <td><?php try {echo  $donation->user_rel->name;} catch(Exception $e) {}  ?></td>
-                                                    <td>{{date('Y-m-d', strtotime($donation->created_at))}}</td>
-                                                    <td>{{date('Y-m-d', strtotime($donation->date))}}</td>
-                                                    <td><?php try { echo $donation->offices_rel->city->name_ar;} catch(Exception $e) {} ?></td>
-
-
-                                                    <td><?php try {echo $donation->cat_rel->name;} catch(Exception $e) {} ?></td>
-                                                    <td>{{$donation->proccess_type}}</td>
-
-
-                                                </tr>
-                                            @endforeach
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <!-- /.table-responsive -->
-
-                                </div>
-                                <!-- /.panel-body -->
+                                        @endforeach
+                                        </tbody>
+                                    </table>
                             </div>
-                            <!-- /.panel -->
-                        </div>
-                        <!-- /.col-lg-12 -->
+                            </div>
                     </div>
-
-                    <!-- /.row (nested) -->
                 </div>
-                <!-- /.panel-body -->
-            </div>
-            <!-- /.panel -->
-        </div>
-        <!-- /.col-lg-12 -->
-    </div>
-    <!-- /.row -->
-    <!-- /#page-wrapper -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @endsection
 @section('scripts')
-    <script src="{{asset('admin')}}/js/jquery/jquery.dataTables.min.js"></script>
-    <script src="{{asset('admin')}}/js/bootstrap/dataTables.bootstrap.min.js"></script>
+<script src="{{asset('admin/js/jquery/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('admin/js/bootstrap/dataTables.bootstrap.min.js')}}"></script>
+
+<script src="{{asset('assets/vendors/custom/datatables/datatables.bundle.js')}}" type="text/javascript"></script>
+
+    <script src="{{asset('assets/app/custom/general/crud/datatables/advanced/column-rendering.js')}}" type="text/javascript"></script>    
 
     <script>
         $(document).ready(function() {
