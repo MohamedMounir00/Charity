@@ -88,8 +88,14 @@
                                         <div class="kt-notification">
                                             
                                             <div class="kt-notification__custom">
-                                                <a href="{{ route('logout') }}" target="_blank" class="btn btn-label-brand btn-sm btn-bold">Sign Out</a>
-                                            </div>
+                                                <a href="{{ route('logout') }}" target="_blank"
+                                                   class="btn btn-label-brand btn-sm btn-bold"  onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">{{trans('admin.logout')}}</a>
+
+
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                    @csrf
+                                                </form>                                            </div>
                                         </div>
     
                                         <!--end: Navigation -->
