@@ -53,7 +53,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="table-responsive">
-                            <table class="table table-striped- table-bordered table-hover table-checkable dataTable no-footer dtr-inline" id="dataTables-example">
+                                <table class="table table-striped- table-bordered table-hover table-checkable dataTable no-footer dtr-inline" id="dataTables-example">
         <thead>
        <tr>
            <th class="sorting">{{trans('admin.donationname')}}</th>
@@ -115,69 +115,7 @@
                     </div>
                 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @endsection
 @section('scripts')
 
