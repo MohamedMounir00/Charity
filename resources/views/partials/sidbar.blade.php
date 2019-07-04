@@ -152,7 +152,7 @@
                         font-size: 20px;
                         text-align: center;
                         font-weight: 600;">
-                                  <img alt="Logo" src="{{asset('backend_asset/assets/media/logos/logo-light.png')}}" />
+                                  <img alt="Logo" src="{{asset('assets/logo.png')}}" style="width: 160px;" />
                                  
                                  </a>
                 </a>
