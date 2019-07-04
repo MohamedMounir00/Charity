@@ -23,7 +23,7 @@
                     @if(Session::has('errors'))
         
                         <div class="alert alert-danger " >
-                            <ul >
+                            <ul  class="msgError">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         
                                 @foreach ($errors->all() as $error)
@@ -38,23 +38,23 @@
 
                                         <div class="form-group">
                                             <label>{{trans('admin.username')}}</label>
-                                            <input type="text" name="username" class="form-control" placeholder="Enter text" required>
+                                            <input type="text" name="username" class="form-control" placeholder="{{trans('admin.username')}}" required>
                                         </div>
                                         <div class="form-group">
                                             <label>{{trans('admin.personal_id')}}</label>
-                                            <input type="number" name="personal_id" class="form-control" placeholder="Enter text" required>
+                                            <input type="number" name="personal_id" class="form-control" placeholder="{{trans('admin.personal_id')}}" required>
                                         </div>
                                         <div class="form-group">
                                             <label>{{trans('admin.sons')}}</label>
-                                            <input type="number" name="sons" class="form-control" placeholder="Enter text" >
+                                            <input type="number" name="sons" class="form-control" placeholder="{{trans('admin.sons')}}" >
                                         </div>
                                         <div class="form-group">
                                             <label>{{trans('admin.Wives')}}</label>
-                                            <input type="number" name="Wives" class="form-control" placeholder="Enter text" >
+                                            <input type="number" name="Wives" class="form-control" placeholder="{{trans('admin.Wives')}}" >
                                         </div>
                                         <div class="form-group">
                                             <label>{{trans('admin.adderss')}}</label>
-                                            <input type="text" name="adderss" class="form-control" placeholder="Enter text" required>
+                                            <input type="text" name="adderss" class="form-control" placeholder="{{trans('admin.adderss')}}" required>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label" for="payment_method">{{trans('admin.typePoor')}} </label>
@@ -71,7 +71,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>{{trans('admin.desc')}}</label>
-                                            <textarea name="desc" class="form-control"> </textarea>
+                                            <textarea name="desc" class="form-control" placeholder="{{trans('admin.desc')}}"> </textarea>
                                         </div>
                                         <div class="form-actions" style="text-align:center">
                                         <button type="submit" class="btn btn-brand btn-elevate btn-pill btn-sm" style="padding:10px 40px">{{trans('admin.add')}}</button>

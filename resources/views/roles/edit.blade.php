@@ -32,7 +32,7 @@
                     @if(Session::has('errors'))
             
                         <div class="alert alert-danger " >
-                            <ul >
+                            <ul  class="msgError">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             
                                 @foreach ($errors->all() as $error)
@@ -56,11 +56,37 @@
                             <strong>الصلاحيات :</strong>
                             <br/>
                             <br>
-                            @foreach($permission as $value)
+
+
+
+
+                            {{-- @foreach($permission as $value)
                                 <label>{{ Form::checkbox('permission[]', $value->id, in_array($value->id, $rolePermissions) ? true : false, array('class' => 'kt-checkbox')) }}
-                                    {{ $value->name }}</label>
+                                    {{ trans('admin.'.$value->name) }}</label>
                                 <br/>
-                            @endforeach
+                            @endforeach --}}
+
+
+
+
+
+                            <div class="form-group row">
+                                    @foreach($permission as $value)
+                                    <div class="col-3">
+                                        <span class="kt-switch kt-switch--icon">
+                                            <label>
+                                                    {{ Form::checkbox('permission[]', $value->id, in_array($value->id, $rolePermissions) ? true : false, array('class' => 'kt-checkbox')) }}
+            
+                                                    {{ trans('admin.'.$value->name) }}
+            
+                                                <span></span>
+                                            </label>
+                                        </span>
+                                    </div>
+                                    @endforeach 
+                                </div>
+
+
                         </div>
                     </div>
                     

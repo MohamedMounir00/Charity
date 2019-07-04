@@ -53,13 +53,13 @@
                                             <td >
                                                 @can('Catogrey-edit')
 
-                                                <a style="padding: 2px;" href="{{route('catogrey.edit', $cat->id)}}" class="btn btn-primary btn-sm">{{trans('admin.edit')}}</a>
+                                                <a style="padding: 9px;" href="{{route('catogrey.edit', $cat->id)}}" class="btn btn-primary btn-sm">{{trans('admin.edit')}}</a>
                                                 @endcan
                                                     @can('Catogrey-delete')
 
                                                 {!! Form::open(['route'=>["catogrey.destroy" , $cat->id ], 'onsubmit' => 'return ConfirmDelete()','style'=>'display: inline;']) !!}
                                                 {!! method_field('DELETE') !!}
-                                                {!! Form::submit(trans('admin.delete'),['class'=>'btn btn-danger btn-sm','style'=>'padding: 2px;'])!!}
+                                                {!! Form::submit(trans('admin.delete'),['class'=>'btn btn-danger btn-sm','style'=>'padding: 9px;'])!!}
                                                 {!! Form::close() !!}
                                                     @endcan
 

@@ -25,7 +25,7 @@
                 @if(Session::has('errors'))
     
                     <div class="alert alert-danger " >
-                        <ul >
+                        <ul  class="msgError">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
     
                             @foreach ($errors->all() as $error)
@@ -40,37 +40,37 @@
 
             <div class="form-group">
                 <label>{{trans('admin.username')}}</label>
-                <input type="text" name="name" class="form-control" placeholder="Enter text" required>
+                <input type="text" name="name" class="form-control" placeholder="{{trans('admin.username')}}" required>
             </div>
             <div class="form-group">
                 <label>{{trans('admin.email')}}</label>
-                <input type="email" name="email" class="form-control" placeholder="Enter text" required>
+                <input type="email" name="email" class="form-control" placeholder="{{trans('admin.email')}}" required>
             </div>
             <div class="form-group">
                 <label>{{trans('admin.password')}}</label>
-                <input type="password" name="password" class="form-control" placeholder="Enter text" required>
+                <input type="password" name="password" class="form-control" placeholder="{{trans('admin.password')}}" required>
             </div>
             <div class="form-group">
                 <label>{{trans('admin.address')}}</label>
-                <input type="text" name="address" class="form-control" placeholder="Enter text" required>
+                <input type="text" name="address" class="form-control" placeholder="{{trans('admin.address')}}" required>
             </div>
             <div class="form-group">
                 <label>{{trans('admin.pesonal_id')}}</label>
-                <input type="text" name="pesonal_id" class="form-control" placeholder="Enter text" required>
+                <input type="text" name="pesonal_id" class="form-control" placeholder="{{trans('admin.pesonal_id')}}" required>
             </div>
             <div class="form-group">
                 <label>{{trans('admin.mobile_1')}}</label>
-                <input type="text" name="mobile_1" class="form-control" placeholder="Enter text" required>
+                <input type="text" name="mobile_1" class="form-control" placeholder="{{trans('admin.mobile_1')}}" required>
             </div>
             <div class="form-group">
                 <label>{{trans('admin.mobile_2')}}</label>
-                <input type="text" name="mobile_2" class="form-control" placeholder="Enter text" >
+                <input type="text" name="mobile_2" class="form-control" placeholder="{{trans('admin.mobile_2')}}" >
             </div>
 
 
             <div class="form-group">
                 <label>{{trans('admin.date')}}</label>
-                <input type="text" name="pirthdata" class="form-control" id="datepicker" required>
+                <input type="text" name="pirthdata" class="form-control" id="datepicker" placeholder="{{trans('admin.date')}}" required>
             </div>
                 <div class="form-group">
 

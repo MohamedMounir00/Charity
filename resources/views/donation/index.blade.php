@@ -85,24 +85,24 @@
            <td >
                @can('Order-create')
 
-               <a href="{{route('gettorderdonation', $donation->id)}}" class="kt-badge kt-badge--primary kt-badge--inline">{{trans('admin.order_edit')}}</a>
+               <a style="padding: 13px;" href="{{route('gettorderdonation', $donation->id)}}" class="kt-badge kt-badge--primary kt-badge--inline">{{trans('admin.order_edit')}}</a>
                
                @endcan
 
            @can('donation-edit')
 
-               <a href="{{route('donation.edit', $donation->id)}}" class="kt-badge kt-badge--primary kt-badge--inline">{{trans('admin.edit')}}</a>
+               <a style="padding: 13px;" href="{{route('donation.edit', $donation->id)}}" class="kt-badge kt-badge--primary kt-badge--inline">{{trans('admin.edit')}}</a>
                      @endcan
                @can('Order-create')
 
-               <a href="{{route('gettorderdonation', $donation->id)}}" class="kt-badge kt-badge--danger kt-badge--inline">{{trans('admin.order_delete')}}</a>
+               <a style="padding: 13px;" href="{{route('gettorderdonation', $donation->id)}}" class="kt-badge kt-badge--danger kt-badge--inline">{{trans('admin.order_delete')}}</a>
                @endcan
 
                    @can('donation-delete')
 
-               <a href="{{route('getdelete',  $donation->id)}}" class="kt-badge kt-badge--danger kt-badge--inline">{{trans('admin.delete')}}</a>
+               <a style="padding: 13px;" href="{{route('getdelete',  $donation->id)}}" class="kt-badge kt-badge--danger kt-badge--inline">{{trans('admin.delete')}}</a>
                 @endcan
-                   <a href="{{route('printDon',  $donation->id)}}" class="kt-badge kt-badge--primary kt-badge--inline">{{trans('admin.print')}}</a>
+                   <a style="padding: 13px;" href="{{route('printDon',  $donation->id)}}" class="kt-badge kt-badge--primary kt-badge--inline">{{trans('admin.print')}}</a>
 
            </td>
 

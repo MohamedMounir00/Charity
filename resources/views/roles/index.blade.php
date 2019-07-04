@@ -45,16 +45,16 @@
                                                 <td>
                                                     @if($role->name !='admin')
                                 
-                                                    <a style="padding: 2px;" class="btn btn-primary btn-sm" href="{{ route('roles.show',$role->id) }}">عرض</a>
+                                                    <a style="padding: 6px;" class="btn btn-primary btn-sm" href="{{ route('roles.show',$role->id) }}">عرض</a>
                                                     @can('role-edit')
                                 
-                                                    <a style="padding: 2px;" class="btn btn-primary btn-sm" href="{{ route('roles.edit',$role->id) }}">تعديل</a>
+                                                    <a style="padding: 6px;" class="btn btn-primary btn-sm" href="{{ route('roles.edit',$role->id) }}">تعديل</a>
                                                     @endcan
                                                     @can('role-delete')
                                                             @if($role->name !='user')
                                 
                                                     {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline' , 'onsubmit' => 'return ConfirmDelete()']) !!}
-                                                        {!! Form::submit('حذف', ['class' => 'btn btn-danger btn-sm','style'=>'padding: 2px;']) !!}
+                                                        {!! Form::submit('حذف', ['class' => 'btn btn-danger btn-sm','style'=>'padding: 6px;']) !!}
                                                         {!! Form::close() !!}
                                                             @endif
                                 

@@ -65,7 +65,7 @@
             <td >
                 @can('user-edit')
 
-                <a style="padding: 2px;" href="{{route('user.edit', $user->id)}}" class="btn btn-primary btn-sm">{{trans('admin.edit')}}</a>
+                <a style="padding: 9px;" href="{{route('user.edit', $user->id)}}" class="btn btn-primary btn-sm">{{trans('admin.edit')}}</a>
 
                 @endcan
                     @can('user-edit')
@@ -74,7 +74,7 @@
 
                 {!! method_field('DELETE') !!}
 
-                {!! Form::submit(trans('admin.delete'),['class'=>'btn btn-danger btn-sm','style'=>'padding: 2px;'])!!}
+                {!! Form::submit(trans('admin.delete'),['class'=>'btn btn-danger btn-sm','style'=>'padding: 9px;'])!!}
 
 
                 {!! Form::close() !!}

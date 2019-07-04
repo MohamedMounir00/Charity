@@ -141,9 +141,8 @@
 
 
 
-<button class="kt-aside-close " id="kt_aside_close_btn"><i class="la la-close"></i></button>
-
 <div class="kt-aside  kt-aside--fixed  kt-grid__item kt-grid kt-grid--desktop kt-grid--hor-desktop" id="kt_aside">
+        <button class="kt-aside-close " id="kt_aside_close_btn"><i class="la la-close"></i></button>
 
         <!-- begin:: Aside -->
         <div class="kt-aside__brand kt-grid__item " id="kt_aside_brand" kt-hidden-height="65" style="">
@@ -153,8 +152,8 @@
                         font-size: 20px;
                         text-align: center;
                         font-weight: 600;">
-                                 <!-- <img alt="Logo" src="{{asset('backend_asset/assets/media/logos/logo-light.png')}}" /> -->
-                                 الجمعية الخيرية
+                                 {{-- <img alt="Logo" src="{{asset('backend_asset/assets/media/logos/logo-light.png')}}" /> --}}
+                                 الجمعية
                                  </a>
                 </a>
             </div>

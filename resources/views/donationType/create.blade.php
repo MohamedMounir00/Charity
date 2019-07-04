@@ -22,7 +22,7 @@
                     @if(Session::has('errors'))
         
                         <div class="alert alert-danger " >
-                            <ul >
+                            <ul  class="msgError">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         
                                 @foreach ($errors->all() as $error)
@@ -36,11 +36,20 @@
 
                 <div class="form-group">
                     <label>{{trans('admin.type')}}</label>
-                    <input type="text" name="name" class="form-control" placeholder="Enter text" required>
+                    <input type="text" name="name" class="form-control" placeholder="{{trans('admin.type')}}" required>
                 </div>
                 <div class="form-actions" style="text-align:center">
                 <button type="submit" class="btn btn-brand btn-elevate btn-pill btn-sm" style="padding:10px 40px">{{trans('admin.add')}}</button>
             </div>
+
+
+
+
+
+
+
+
+            
 
                 {!! Form::close() !!}
             </div>

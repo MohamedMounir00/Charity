@@ -35,14 +35,35 @@
 
 
 
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                                 <strong>الصلاحيات : </strong>
                                 @if(!empty($rolePermissions))
                                     @foreach($rolePermissions as $v)
-                                        <label class="kt-badge kt-badge--success kt-badge--inline">{{ $v->name }},</label>
+                                        <label class="kt-badge kt-badge--success kt-badge--inline">    {{ trans('admin.'.$v->name) }}
+                                        </label>
                                     @endforeach
                                 @endif
-                            </div>
+                            </div> --}}
+
+
+
+                            <div class="form-group row">
+                                    @if(!empty($rolePermissions))
+                                    @foreach($rolePermissions as $v)
+                                    <div class="col-3">
+                                        <span class="kt-switch kt-switch--icon">
+                                            <label>
+                                                {{ Form::checkbox('permission[]', $v->id, true, array('class' => 'kt-checkbox','disabled')) }}
+
+                                                {{ trans('admin.'.$v->name) }}
+            
+                                                <span></span>
+                                            </label>
+                                        </span>
+                                    </div>
+                                    @endforeach
+                                    @endif 
+                                </div>
             </div>
 </div>
 

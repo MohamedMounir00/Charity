@@ -49,16 +49,16 @@
 
 
             <td >
-                <a style="padding: 2px;margin:2px" href="{{route('resignation.show', $r->id)}}" class="btn btn-primary btn-sm">عرض</a>
+                <a style="padding: 9px;margin:2px" href="{{route('resignation.show', $r->id)}}" class="btn btn-primary btn-sm">عرض</a>
 
             @can('Resignation-delete')
 
 
-                {!! Form::open(['route'=>["resignation.destroy" , $r->id ], 'onsubmit' => 'return ConfirmDeletee()']) !!}
+                {!! Form::open(['route'=>["resignation.destroy" , $r->id ], 'onsubmit' => 'return ConfirmDeletee()','style'=>'display: inline;']) !!}
 
                 {!! method_field('DELETE') !!}
 
-                {!! Form::submit(trans('admin.delete'),['class'=>'btn btn-danger btn-sm','style'=>'padding: 2px;margin:2px'])!!}
+                {!! Form::submit(trans('admin.delete'),['class'=>'btn btn-danger btn-sm','style'=>'padding: 9px;margin:2px'])!!}
 
 
                 {!! Form::close() !!}
@@ -67,7 +67,7 @@
 
                 {!! method_field('DELETE') !!}
 
-                {!! Form::submit(trans('admin.accept'),['class'=>'btn btn-primary btn-sm','style'=>'padding: 2px;margin:2px'])!!}
+                {!! Form::submit(trans('admin.accept'),['class'=>'btn btn-primary btn-sm','style'=>'padding: 9px;margin:2px'])!!}
 
 
                 {!! Form::close() !!}

@@ -34,7 +34,7 @@
                     @if(Session::has('errors'))
             
                         <div class="alert alert-danger " >
-                            <ul >
+                            <ul  class="msgError">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             
                                 @foreach ($errors->all() as $error)
@@ -57,11 +57,33 @@
                 <strong>الصلاحيات :</strong>
                 <br>
                 <br/>
-                @foreach($permission as $value)
-                    <label>{{ Form::checkbox('permission[]', $value->id, false, array('class' => 'kt-checkbox')) }}
-                        {{ $value->name }}</label>
-                    <br/>
-                @endforeach
+
+
+          
+
+
+                
+                <div class="form-group row">
+                        @foreach($permission as $value)
+                        <div class="col-3">
+                            <span class="kt-switch kt-switch--icon">
+                                <label>
+                                        {{ Form::checkbox('permission[]', $value->id, false, array('class' => 'kt-checkbox')) }}
+
+                                        {{ trans('admin.'.$value->name) }}
+
+                                    <span></span>
+                                </label>
+                            </span>
+                        </div>
+                        @endforeach 
+                    </div>
+                    
+
+
+
+
+
             </div>
         </div>
         
@@ -69,6 +91,30 @@
     <div class="form-actions" style="text-align:center">
             <button type="submit"  class="btn btn-brand btn-elevate btn-pill btn-sm" style="padding:10px 40px">اضف</button>
         </div>
+
+
+
+
+
+
+
+
+
+
+
+               
+
+              
+
+
+
+
+
+
+
+
+
+           
     {!! Form::close() !!}
             </div>
 </div>

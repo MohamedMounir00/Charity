@@ -12,7 +12,7 @@ return[
 'Rememberme'=>'Remember me',
 'loginaccount'=>'تسجيل الدخول',
 'errorlogindata'=>'check your email And Passwoed',
-'logout'=>'logout',
+    'logout'=>'تسجيل خروج',
 'home'=>'HOME',
 'settings'=>'settings',
 'siteemail'=>'site email',
@@ -137,6 +137,63 @@ return[
     "of"=>"من",
     "to"=>"الي",
     'processing'=>'قيد التنفيذ',
+    'role-list'=>'عرض المهام',
+    'role-create'=>'انشاء مهام',
+    'role-edit'=>'تعديل المهام',
+    'role-delete'=>'حذف المهام',
+
+    'user-list'=>'عرض المستخدمين',
+    'user-create'=>'انشاء مسخدمين',
+    'user-edit'=>'تعديل المستخدمين',
+    'user-delete'=>'حذف المستخدمين',
+
+    'donation-list'=>'عرض التبرعات',
+    'donation-create'=>'انشاء التبرعات',
+    'donation-edit'=>'تعديل التبرعات',
+    'donation-delete'=>'حذف التبرعات',
+
+    'beneficiary-list'=>'عرض المحتاجين',
+    'Beneficiary-create'=>'انشاء المحتاجين',
+    'Beneficiary-edit'=>'تعديل المحتاجين',
+    'Beneficiary-delete'=>'حذف المحتاجين',
+
+    'Catogrey-list'=>'عرض الاقسام',
+    'Catogrey-create'=>'انشاء الاقسام',
+    'Catogrey-edit'=>'تعديل الاقسام',
+    'Catogrey-delete'=>'حذف الاقسام',
+
+    'Delavary-list'=>'عرض تسليم التبرعات',
+    'Delavary-create'=>'تسليم التبرعات',
+    'Delavary-edit'=>'تعديل تسليم التبرعات',
+    'Delavary-delete'=>'حذف تسليم التبرعات',
+
+    'Office-list'=>'عرض المكاتب',
+    'Office-create'=>'انشاء المكاتب',
+    'Office-edit'=>'تعديل المكاتب',
+    'Office-delete'=>'حذف المكاتب',
+
+    'Order-list'=>'عرض الاذونات',
+    'Order-create'=>'انشاء الاذوانت',
+    'Order-edit'=>'تعديل الاذونات',
+    'Order-delete'=>'حذف الاذونات',
+
+    'Resignation-list'=>'عرض الاستقلات',
+    'Resignation-create'=>'انشاء الاستقلات',
+    'Resignation-edit'=>'تعديل الاستقلات',
+    'Resignation-delete'=>'حذف الاستقلات',
+
+    'StudyLevel-list'=>'عرض المراحل الدراسيه',
+    'StudyLevel-create'=>'انشاء المراحل الدراسيه',
+    'StudyLevel-edit'=>'تعديل المراحل الدراسيه',
+    'StudyLevel-delete'=>'حذف المراحل الدراسيه',
+
+    'TypeDonation-list'=>'عرض انواع التبرعات',
+    'TypeDonation-create'=>'انشاء انوع التبرعات',
+    'TypeDonation-edit'=>'تعديل انوع التبرعات',
+    'TypeDonation-delete'=>'حذف انوع التبرعات',
+
+    'ArchiveDonation-list'=>'عرض الارشيف',
+    'ArchiveDonation-delete'=>'حذف الارشيف',
 
 ]
 

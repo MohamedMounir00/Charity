@@ -4,6 +4,8 @@
 @endsection
 @section('content')
 
+
+
 <div class="kt-portlet kt-portlet--mobile">
         <div class="kt-portlet__head kt-portlet__head--lg">
                 <div class="kt-portlet__head-label">
@@ -18,11 +20,12 @@
 
 
             <div class="kt-portlet__body">
+
                     @if(isset($errors) > 0)
                     @if(Session::has('errors'))
         
-                        <div class="alert alert-danger " >
-                            <ul >
+                        <div class="alert alert-danger" >
+                            <ul class="msgError">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         
                                 @foreach ($errors->all() as $error)
@@ -37,7 +40,7 @@
                                         <div class="form-group">
                                             <label class="control-label" for="name">{{trans('admin.donationname')}} </label>
                                             <div class="controls">
-                                                <input type="text" value="{{old('name')}}" class="form-control" name="name" id="name" class="span6" required />
+                                                <input type="text" value="{{old('name')}}" class="form-control" placeholder="{{trans('admin.donationname')}}" name="name" id="name" class="span6" required />
 
                                             </div>
                                         </div>

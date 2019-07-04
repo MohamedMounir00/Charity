@@ -72,7 +72,7 @@
                                             <td >
                                                 @can('Delavary-edit')
 
-                                                <a  style="padding: 2px;" href="{{route('delavery.edit', $d->id)}}" class="btn btn-primary btn-sm">{{trans('admin.edit')}}</a>
+                                                <a  style="padding: 9px;" href="{{route('delavery.edit', $d->id)}}" class="btn btn-primary btn-sm">{{trans('admin.edit')}}</a>
 
                                                 @endcan
                                                     @can('Delavary-delete')
@@ -81,12 +81,12 @@
 
                                                 {!! method_field('DELETE') !!}
 
-                                                {!! Form::submit(trans('admin.delete'),['class'=>'btn btn-danger btn-sm','style'=>'padding: 2px;'])!!}
+                                                {!! Form::submit(trans('admin.delete'),['class'=>'btn btn-danger btn-sm','style'=>'padding: 9px;'])!!}
 
 
                                                 {!! Form::close() !!}
                                                     @endcan
-                                                    <a style="padding: 2px;" href="{{route('printdelavey',  $d->id)}}" class="btn btn-primary btn-sm">طباعه</a>
+                                                    <a style="padding: 9px;" href="{{route('printdelavey',  $d->id)}}" class="btn btn-primary btn-sm">طباعه</a>
 
                                             </td>
 

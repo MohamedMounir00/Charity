@@ -20,7 +20,7 @@
                     @if(Session::has('errors'))
         
                         <div class="alert alert-danger " >
-                            <ul >
+                            <ul  class="msgError">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         
                                 @foreach ($errors->all() as $error)
@@ -34,7 +34,7 @@
 
                 <div class="form-group">
                     <label>السعر او الكميه</label>
-                    <input type="text" name="price" class="form-control" placeholder="Enter text" required>
+                    <input type="text" name="price" class="form-control" placeholder="السعر أو الكمية" required>
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="payment_method">طريقه الدفع</label>

@@ -20,7 +20,7 @@
             @if(Session::has('errors'))
 
                 <div class="alert alert-danger " >
-                    <ul >
+                    <ul  class="msgError">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 
                         @foreach ($errors->all() as $error)
@@ -122,7 +122,7 @@
                         <div class="form-group">
                             <label class="control-label" for="name">{{trans('admin.title')}} </label>
                             <div class="controls">
-                                <input type="text" class="form-control" name="title" id="title"  />
+                                <input type="text" class="form-control" name="title" id="title" placeholder="{{trans('admin.title')}}"  />
 
                             </div>
                         </div>

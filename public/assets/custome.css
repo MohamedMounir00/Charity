@@ -9,3 +9,34 @@
 .kt-portlet__head-title {
     font-weight: 700 !important;
 }
+.kt-widget17__item {
+    text-align: center !important;
+}
+.form-control {
+    padding: 5px !important;
+}
+.custom-select {
+    width: 45px !important;
+}
+ li {
+     list-style: none !important;
+ }
+ .res {
+    font-weight: 400 !important;
+    font-size: 15px !important;
+    margin-bottom: 15px !important;
+ }
+ .kt-badge {
+     margin: 2px !important;
+ }
+ .btn {
+     margin: 2px !important
+ }
+ .msgError {
+     width: 100% !important; 
+ }
+ .msgError > li
+ {
+    font-weight: 500;
+    font-size: 15px;
+ }

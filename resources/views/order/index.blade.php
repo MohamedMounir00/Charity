@@ -52,11 +52,11 @@
                                     <td >
                                         @can('user-edit')
 
-                                        <a href="{{route('donation.edit', $order->donation_id)}}" class="kt-badge kt-badge--primary kt-badge--inline">تعديل التبرع</a>
+                                        <a style="padding: 13px;" href="{{route('donation.edit', $order->donation_id)}}" class="kt-badge kt-badge--primary kt-badge--inline">تعديل التبرع</a>
                                            @endcan
                                             @can('user-delete')
 
-                                            <a href="{{route('getdelete', $order->donation_id)}}" class="kt-badge kt-badge--danger kt-badge--inline">حذف التبرع</a>
+                                            <a style="padding: 13px;" href="{{route('getdelete', $order->donation_id)}}" class="kt-badge kt-badge--danger kt-badge--inline">حذف التبرع</a>
 
                                             @endcan
 
