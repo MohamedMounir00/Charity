@@ -152,8 +152,8 @@
                         font-size: 20px;
                         text-align: center;
                         font-weight: 600;">
-                                 {{-- <img alt="Logo" src="{{asset('backend_asset/assets/media/logos/logo-light.png')}}" /> --}}
-                                 الجمعية
+                                  <img alt="Logo" src="{{asset('backend_asset/assets/media/logos/logo-light.png')}}" />
+                                 
                                  </a>
                 </a>
             </div>
